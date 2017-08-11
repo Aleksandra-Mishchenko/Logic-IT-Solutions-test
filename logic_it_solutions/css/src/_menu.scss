@@ -1,0 +1,116 @@
+.menu {
+    float: right;
+    margin-top: 90px;
+
+    .menu-list {
+        display: block;
+        margin-right: -15px;
+        margin-left: -15px;
+
+        .menu-item {
+            position: relative;
+            display: inline-block;
+            vertical-align: middle;
+            margin: 0 15px;
+            white-space: normal;
+            z-index: 1;
+            overflow: hidden;
+
+            .menu-item__link {
+                position: relative;
+                @include LatoBold;
+                font-size: 14px;
+                text-transform: uppercase;
+                color: #fff;
+                z-index: 10;
+                border-color: transparent;
+            }
+
+            .menu-sublist {
+                display: block;
+                position: absolute;
+                top: -15px;
+                left: 50%;
+                padding: 45px 55px 35px;
+                background-color: #fff;
+                @include transform(translate(-50%,0));
+                z-index: 5;
+                opacity: 0;
+
+                .menu-subitem {
+                    display: block;
+                    margin-top: 16px;
+
+                    .menu-subitem__link {
+                        display: inline-block;
+                        font-family: $font-base;
+                        color: #000;
+                        font-size: 14px;
+                    }
+                }
+            }
+
+            @include desktopStyles {
+
+                &:hover,
+                &.is-hover {
+                    z-index: 2;
+                    overflow: visible;
+
+                    .menu-item__link {
+                        border-bottom: 2px solid $color-orange;
+                        padding-bottom: 14px;
+                        color: #000;
+                        @include transition(color $animation-time-submenu ease-in-out, border-color $animation-time-submenu ease-in-out);
+                    }
+
+                    .menu-sublist {
+                        @include transition(opacity $animation-time-submenu ease-in-out);
+                        opacity: 1;
+                    }
+                }
+            }
+        }
+
+        @include mobileStyles {
+            display: block;
+            position: fixed;
+            top: 0;
+            right: 0;
+            left: 0;
+            bottom: 0;
+            margin: 0;
+            padding-top: 100px;
+            padding-right: 28px;
+            background-color: #2e3033;
+            text-align: right;
+            opacity: .2;
+            transform: translate(100%,0);
+            @include transition(transform $animation-time-submenu ease-in-out, opacity $animation-time-submenu ease-in-out);
+
+            &.is-opened {
+                opacity: 1;
+                transform: translate(0,0);
+            }
+
+            .menu-item {
+                display: block;
+                margin: 0 0 24px;
+            }
+        }
+    }
+
+    .menu-icon {
+        display: none;
+        width: 26px;
+        height: 18px;
+        position: absolute;
+        top: 50px;
+        right: 3px;
+        z-index: 50;
+
+        @include mobileStyles {
+            display: block;
+        }
+    }
+}

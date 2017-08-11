@@ -1,0 +1,23 @@
+.clearfix:after {
+    content: '';
+    display: block;
+    visibility: hidden;
+    height: 0;
+    font-size: 0;
+    clear: both;
+}
+.clearfix {
+    display: inline-block;
+}
+
+.left {
+    float: left;
+}
+
+.right {
+    float: right;
+}
+
+a {
+    text-decoration: none;
+}

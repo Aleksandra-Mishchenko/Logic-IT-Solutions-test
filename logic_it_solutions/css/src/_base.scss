@@ -1,0 +1,17 @@
+body {
+    font-family: $font-base;
+}
+
+.container {
+    display: flex;
+    position: relative;
+    height: 100vh;
+    background-image: url("#{$img-path}bg-desktop.jpg");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    @include mobileStyles {
+        padding: 0 50px;
+    };
+}

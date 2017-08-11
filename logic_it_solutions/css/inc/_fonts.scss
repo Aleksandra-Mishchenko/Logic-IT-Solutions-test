@@ -1,0 +1,23 @@
+@mixin font-face($style-name, $file, $family) {
+    $filepath: "../fonts/" + $family + "/" + $file;
+    @font-face {
+        font-family: "#{$style-name}";
+        src: url($filepath + ".eot");
+        src: url($filepath + ".woff") format('woff'),
+        url($filepath + ".ttf")  format('truetype'),
+        url($filepath + ".svg#" + $style-name + "") format('svg');
+
+    }
+}
+
+@include font-face('Raleway Black', 'Raleway-Black', 'Raleway');
+
+@mixin LatoBlack {
+    font-family: $font-base;
+    font-weight: 900;
+}
+
+@mixin LatoBold {
+    font-family: $font-base;
+    font-weight: bold;
+}

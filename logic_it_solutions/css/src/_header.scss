@@ -1,0 +1,41 @@
+.header {
+    position: absolute;
+    top: 0;
+    right: 0;
+    left: 0;
+    margin: 10px 115px 0;
+
+    @include mobileStyles {
+        margin: 0 25px;
+    }
+
+    .header-left {
+        position: absolute;
+        top: 10px;
+        left: 0;
+
+        .header__phone {
+            display: block;
+            pointer-events: none;
+            border: none;
+            background-color: transparent;
+            @include LatoBold;
+            font-size: 14px;
+            color: $color-orange;
+        }
+
+        .header__logo-outer {
+            display: flex;
+            width: 170px;
+            height: 65px;
+            margin-top: 25px;
+        }
+
+        .header__logo {
+            display: block;
+            margin: auto 0;
+            max-width: 100%;
+            max-height: 100%;
+        }
+    }
+}
